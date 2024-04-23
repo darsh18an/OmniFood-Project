@@ -1,0 +1,262 @@
+/* **************************************** */
+/* general reusable components */
+/* **************************************** */
+
+
+
+*{
+  padding: 2;
+  margin: 0; 
+  /* to overide defaults styles of all browsers */
+  box-sizing: border-box;
+}
+html{
+  /* font-size: 10px
+  10px /16px =0.625/62.5
+  percentage of users browser font-size setting */
+
+  font-size: 62.5%;
+  /* which gives responsiveness to font % */
+  overflow-x: hidden; 
+  /* if you give only overflow then scrolling will not work */
+
+  /* doesnt work on safari */
+  /* scroll-behavior: smooth; */
+}
+body {
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+  /* this only works when there is nothing absolutely
+  positioned in reletion to body */
+  overflow-x: hidden; 
+}
+
+
+
+/* generic container is element used to center the page in view port  */
+.container{
+  /* 1140px */
+ max-width: 120rem;
+margin: 0 auto;
+padding: 0 3.2rem;
+/* by this you will substract 3.2rem from both sides
+and it will be nearlly to 1140px  (box model)*/
+}
+
+.grid{
+   display: grid;
+   column-gap: 6.4rem;
+   row-gap: 9.6rem;
+   grid-template-columns: repeat(2, 1fr);
+   /* margin-bottom: 9.6rem; */
+}
+
+/* .grid:last-child{
+  margin-bottom: 0;
+} */
+/*  used to add margin for only selected one */
+
+
+.grid:not(:last-child){
+  margin-bottom: 9.6rem;
+}
+
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid--5-cols{
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid--center-v{
+  align-items: center,;
+}
+
+.heading-primary,
+.heading-secondary,
+.heading-tertiary{
+  font-weight: 700;
+   /* font-size: 5.2rem; */
+  color: #333;
+  letter-spacing: -0.5px;
+}
+
+.heading-primary{
+   font-size: 5.2rem;
+  line-height: 1.05;
+  margin-bottom: 3.2rem;
+}
+
+
+
+.heading-secondary{
+  font-size: 4.4rem;
+  line-height: 1.2;
+  margin-bottom:9.6rem;
+}
+
+.heading-tertiary{
+  font-size:3rem;
+  line-height: 1.2;
+  margin-bottom: 3.2rem;
+}
+
+.subheading{
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color:#cf711f ;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+  margin-top: 1.6rem;
+  letter-spacing: 0.75px;
+}
+
+
+
+.btn,
+.btn:link, 
+.btn:visited{
+  /* as it is link we have to style pseudo classes as it notactual button */
+  display: inline-block;
+  /* background-color: #e67e22; */
+  /* color: #fff; */
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.6rem 3.2rem;
+  /* as it is inline element */
+  border-radius: 9px;
+   text-decoration: none;
+
+
+   /* only for .btn */
+   border: none;
+   cursor: pointer;
+   font-family: inherit;
+
+
+   /* before hover here we create  transition property
+    is a property that allows to transition btwn to 
+    elements with animation */
+    /* transition: background-color 0.3s; */
+    transition: all 0.3s;
+    
+}
+
+.btn--full:link,
+.btn--full:visited{
+  background-color: #e67e22;
+  color: #fff;
+  /* to seperate the buttons */
+  /* margin-right: 1.6rem; */
+}
+
+.btn--full:hover,
+.btn--full:active{
+  background-color: #b8651b;
+}
+
+.btn--outline:link,
+.btn--outline:visited{
+  background-color: #fff;
+  color: #555;
+}
+
+.btn--outline:hover,
+.btn--outline:active{
+  background-color: #f8d8bd;
+  /* trick to add border inside */
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+.btn--form{
+  background-color: #45260a;
+  color: #fdf2e9;
+  align-self: end;
+  padding: 1.2rem;
+}
+.btn--form:hover{
+  background-color: #fff;
+  color: #555; 
+}
+
+.link:link,
+.link:visited{
+  display: inline-block;
+  color: #e67e22;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: all 0.3s;
+}
+
+.link:hover,
+.link:active{
+  border-bottom: 1px solid transparent;
+  color: #e67e22;
+}
+
+.list{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+.list-item{
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  line-height: 1.2;
+}
+
+.list-icon{
+  width: 3rem;
+  height: 3rem;
+  color: #e67e22;
+}
+
+/* default blue line border like one which can be removed by this */
+*:focus{
+  outline: none;
+  /* outline: 4px dotted #e67e22;
+  outline-offset: 8px; */
+  box-shadow: 0 0 0 0.8rem rgba(230, 125, 34, 0.5);
+}
+
+/* helpers/settings classes */
+.margin-right-sm{
+  margin-right: 1.6rem !important;
+}
+
+.margin-bottom-md{
+  margin-bottom: 4.8rem !important;
+}
+
+  /* border: 3px solid #fff; */
+ /* trick to add border inside */
+ /* box-shadow: inset 0 0 0 3px #fff; */
+
+ /* **********helper classes********** */
+
+ /* as we can center by using align items center but we taken it because 
+ for purpose of reuseablity */
+
+ .center-text{
+  text-align: center;
+ }
+
+strong{
+  font-weight: 500;
+}
